@@ -1,0 +1,11 @@
+name: Get ETH Price
+description: get ethereum price
+node_identifier: MyTestnet
+platforms:
+  - Docker
+data_sources:
+  - name: get-eth-price
+    url: https://github.com/metamic/get-eth-price.git
+parameters:
+  - base
+  - quote
