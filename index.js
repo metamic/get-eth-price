@@ -1,21 +1,8 @@
 const { Requester, Validator } = require('@chainlink/external-adapter')
 
-// Define custom error scenarios for the API.
-// Return true for the adapter to retry.
 const customError = (data) => {
     if (data.Response === 'Error') return true
     return false
-}
-
-// Define custom parameters to be used by the adapter.
-// Extra parameters can be stated in the extra object,
-// with a Boolean value indicating whether or not they
-// should be required.
-// { "id": 1, "data": { "from": "ETH", "to": "USD" } }
-const customParams = {
-    base: ['base', 'from', 'coin'],
-    quote: ['quote', 'to', 'market'],
-    endpoint: false
 }
 
 const createRequest = (input, callback) => {
