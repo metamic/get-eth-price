@@ -7,7 +7,7 @@ const port = process.env.EA_PORT || 9090
 
 app.use(bodyParser.json())
 
-app.get('/', (req, res) => {
+app.post('/', (req, res) => {
   createRequest(req.body, (status, result) => {
     console.log(result);
     res.status(status).json(result);
