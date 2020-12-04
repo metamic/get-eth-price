@@ -23,7 +23,7 @@ const createRequest = (input, callback) => {
                 data: {
                     symbol: "ETH-USD",
                     last: {
-                        price: response.data.USD,
+                        price: response.data.USD.toString(),
                         timestamp: Date.now()
                       }
                 }
