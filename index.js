@@ -18,8 +18,17 @@ const createRequest = (input, callback) => {
     }
     Requester.request(config, customError)
         .then(response => {
-            console.log(response.data.USD);
-            callback(response.status, {jobRunID, USD: response.data.USD});
+            const res = {
+                jobRunID, 
+                data: {
+                    symbol: "ETH-USD",
+                    last: {
+                        price: response.data.USD,
+                        timestamp: Date.now()
+                      }
+                }
+            }
+            callback(response.status, res);
         })
         .catch(error => {
             callback(500, Requester.errored(jobRunID, error))
